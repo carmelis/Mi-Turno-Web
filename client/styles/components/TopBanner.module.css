@@ -7,10 +7,19 @@
   background: var(--color-grey2);
   display: flex;
   justify-content: center;
-  color: var(--color-primary);
   font-size: 12px;
   padding-top: 12px;
   padding-bottom: 8px;
   margin-bottom: 36px;
   font-weight: 600;
+}
+
+.text {
+  color: var(--color-primary);
+}
+
+.close {
+  position: absolute;
+  right: 2%;
+  color: var(--color-grey7);
 }

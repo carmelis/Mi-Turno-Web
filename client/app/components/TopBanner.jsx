@@ -1,9 +1,12 @@
+"use client";
 import styles from "../../styles/components/TopBanner.module.css";
+import { CgClose } from "react-icons/cg";
 
 const TopBanner = () => {
   return (
     <div className={styles.banner}>
-      <p>Mensaje promocional</p>
+      <p className={styles.text}>Mensaje promocional</p>
+      <CgClose className={styles.close} />
     </div>
   );
 };
