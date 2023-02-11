@@ -1,13 +1,22 @@
 "use client";
 import styles from "../../styles/components/TopBanner.module.css";
-import { CgClose } from "react-icons/cg";
+import { MdClose } from "react-icons/md";
+import { useState, useEffect } from "react";
 
 const TopBanner = () => {
+  const [openTopBanner, setOpenTopBanner] = useState(true);
+
+  const handleClose = () => setOpenTopBanner(false);
+
   return (
-    <div className={styles.banner}>
-      <p className={styles.text}>Mensaje promocional</p>
-      <CgClose className={styles.close} />
-    </div>
+    <>
+      {openTopBanner && (
+        <div className={styles.banner}>
+          <p className={`link ${styles.text}`}>Mensaje promocional</p>
+          <MdClose className={styles.close} onClick={handleClose} />
+        </div>
+      )}
+    </>
   );
 };
 
