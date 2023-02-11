@@ -1,3 +1,4 @@
+"use client";
 import "../styles/globals.css";
 import TopBanner from "./components/TopBanner";
 
