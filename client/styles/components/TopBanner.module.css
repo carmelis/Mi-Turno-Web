@@ -4,10 +4,10 @@
   height: 36px;
   left: 0px;
   top: 0px;
-  background: #f0f0f0;
+  background: var(--color-grey2);
   display: flex;
   justify-content: center;
-  color: #a442f1;
+  color: var(--color-primary);
   font-size: 12px;
   padding-top: 12px;
   padding-bottom: 8px;

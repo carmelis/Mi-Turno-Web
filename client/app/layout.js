@@ -1,12 +1,14 @@
-import "../styles/globals.scss"
-import TopBanner from "./components/TopBanner"
+import "../styles/globals.css";
+import TopBanner from "./components/TopBanner";
 
 export default function RootLayout({ children }) {
   return (
     <html>
       <head />
-      <TopBanner/>
-      <body>{children}</body>
+      <body>
+        <TopBanner />
+        {children}
+      </body>
     </html>
-  )
+  );
 }
