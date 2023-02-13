@@ -29,11 +29,4 @@ const notfound = (res) =>
     message: "Resource not found",
   });
 
-export default {
-  error,
-  badrequest,
-  ok,
-  created,
-  unauthorized,
-  notfound,
-};
+export { error, badrequest, ok, created, unauthorized, notfound };
