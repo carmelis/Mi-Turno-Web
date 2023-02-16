@@ -20,7 +20,6 @@ export default function BranchPage({ params }) {
 
   return (
     <main>
-      <h1>Editar sucursal {id}</h1>
       <FormBranch branch={branch} newMovie={false} />
     </main>
   );
