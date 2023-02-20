@@ -43,7 +43,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   color: var(--color-black);
-  margin-top: 36px;
+  margin-top: 2rem;
   justify-content: center;
 }
 
@@ -51,7 +51,7 @@ body {
 .section-a {
   position: absolute;
   margin-top: -2.25rem;
-  padding: 5.25rem 6rem 0px;
+  padding: 5.25rem 6rem 2rem;
   background-color: var(--color-white);
   min-height: 100vh;
   min-width: 100vw;
@@ -63,7 +63,7 @@ body {
 .section-b {
   position: absolute;
   margin-top: -2.25rem;
-  padding-top: 5.25rem;
+  padding: 5.25rem 0rem 2rem;
   background-color: var(--color-grey2);
   min-height: 100vh;
   min-width: 100vw;
@@ -125,7 +125,7 @@ body {
 }
 
 .btn-secondary:hover {
-  background-color:rgba(164, 66, 241, 0.2);
+  background-color: rgba(164, 66, 241, 0.2);
 }
 
 .btn-secondary:active {
@@ -238,4 +238,34 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.25rem;
+}
+
+/* ========== CHECKBOX ========== */
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.354375rem;
+}
+
+.checkbox-container label {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--color-grey8);
+}
+
+.checkbox-container input {
+  cursor: pointer;
+}
+
+.checkbox-container input:checked {
+  border-color: var(--color-primary);
+}
+
+.checkbox-container label::after {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--color-black);
 }
