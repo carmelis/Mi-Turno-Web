@@ -12,11 +12,12 @@
   --color-grey5: #afafaf;
   --color-grey6: #8c8c8c;
   --color-grey7: #6e6e6e;
+  --color-grey8: #505050;
   --color-success: #00a541;
   --color-error: #e53939;
   --color-shadow: rgba(0, 0, 0, 0.24);
 
-  --transition: all 400ms ease;
+  --transition: all 200ms ease;
 }
 
 * {
@@ -50,10 +51,13 @@ body {
 .section-a {
   position: absolute;
   margin-top: -2.25rem;
-  padding-top: 5.25rem;
+  padding: 5.25rem 6rem 0px;
   background-color: var(--color-white);
   min-height: 100vh;
   min-width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .section-b {
@@ -64,7 +68,8 @@ body {
   min-height: 100vh;
   min-width: 100vw;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* ========== BUTTONS ========== */
@@ -103,9 +108,8 @@ body {
 }
 
 .btn-secondary {
-  background-color: var(--color-primary);
+  background-color: rgba(164, 66, 241, 0.1);
   border-radius: 8px;
-  opacity: 10%;
   cursor: pointer;
   display: flex;
   flex-direction: row;
@@ -121,11 +125,10 @@ body {
 }
 
 .btn-secondary:hover {
-  opacity: 20%;
+  background-color:rgba(164, 66, 241, 0.2);
 }
 
 .btn-secondary:active {
-  opacity: 20%;
   box-shadow: inset 0px 0px 8px var(--color-shadow);
 }
 
@@ -200,7 +203,7 @@ body {
   padding: 12px 8px 12px 12px;
   gap: 8px;
   height: 44px;
-  width:100%;
+  width: 100%;
   background: var(--color-white);
   border: 1px solid var(--color-grey3);
   border-radius: 8px;
@@ -226,7 +229,7 @@ body {
   color: var(--color-black);
 }
 
-.input__field{
+.input__field {
   gap: 0.125rem;
   width: 100%;
 }
