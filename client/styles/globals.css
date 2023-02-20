@@ -5,17 +5,19 @@
   --color-secondary: #cc6aff;
   --color-white: #ffffff;
   --color-black: #000000;
+  --color-grey1: #f5f5f5;
   --color-grey2: #f0f0f0;
   --color-grey3: #e1e1e1;
   --color-grey4: #c8c8c8;
   --color-grey5: #afafaf;
   --color-grey6: #8c8c8c;
   --color-grey7: #6e6e6e;
+  --color-grey8: #505050;
   --color-success: #00a541;
   --color-error: #e53939;
   --color-shadow: rgba(0, 0, 0, 0.24);
 
-  --transition: all 400ms ease;
+  --transition: all 200ms ease;
 }
 
 * {
@@ -40,10 +42,34 @@ html {
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--color-white);
   color: var(--color-black);
   margin-top: 36px;
   justify-content: center;
+}
+
+/* ========== SECTIONS ========== */
+.section-a {
+  position: absolute;
+  margin-top: -2.25rem;
+  padding: 5.25rem 6rem 0px;
+  background-color: var(--color-white);
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.section-b {
+  position: absolute;
+  margin-top: -2.25rem;
+  padding-top: 5.25rem;
+  background-color: var(--color-grey2);
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* ========== BUTTONS ========== */
@@ -82,9 +108,8 @@ body {
 }
 
 .btn-secondary {
-  background-color: var(--color-primary);
+  background-color: rgba(164, 66, 241, 0.1);
   border-radius: 8px;
-  opacity: 10%;
   cursor: pointer;
   display: flex;
   flex-direction: row;
@@ -100,11 +125,10 @@ body {
 }
 
 .btn-secondary:hover {
-  opacity: 20%;
+  background-color:rgba(164, 66, 241, 0.2);
 }
 
 .btn-secondary:active {
-  opacity: 20%;
   box-shadow: inset 0px 0px 8px var(--color-shadow);
 }
 
@@ -179,6 +203,7 @@ body {
   padding: 12px 8px 12px 12px;
   gap: 8px;
   height: 44px;
+  width: 100%;
   background: var(--color-white);
   border: 1px solid var(--color-grey3);
   border-radius: 8px;
@@ -187,18 +212,16 @@ body {
   line-height: 20px;
   display: flex;
   align-items: center;
-  color: var(--color-grey5);
+  color: var(--color-black);
 }
 
 .input:hover {
   border: 1px solid var(--color-grey5);
-  color: var(--color-grey7);
 }
 
 .input:active {
   border: 1px solid var(--color-primary);
   font-weight: 500;
-  color: var(--color-black);
 }
 
 .input.focus {
@@ -206,16 +229,13 @@ body {
   color: var(--color-black);
 }
 
-.placeholder {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  color: var(--color-black);
+.input__field {
+  gap: 0.125rem;
+  width: 100%;
 }
 
-.caption {
+.input__label {
   font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-  color: var(--color-grey6);
+  font-size: 14px;
+  line-height: 1.25rem;
 }
