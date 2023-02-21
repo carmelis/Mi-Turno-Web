@@ -1,9 +1,8 @@
 import FormBranch from "../../components/FormBranch";
 
-export default function CreateBranch() {
+export default function CreateBranchPage() {
   return (
     <main>
-      <h1>Crear una nueva sucursal</h1>
       <FormBranch />
     </main>
   );
