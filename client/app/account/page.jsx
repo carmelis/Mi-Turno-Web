@@ -1,7 +1,9 @@
-const Account = () => {
-    return (
-        <hi>Hello World!</hi>
-    )
-}
+import MyData from "../components/MyData";
 
-export default Account
+const Account = () => {
+  return (<section className="section-b">
+   <MyData/>
+  </section>);
+};
+
+export default Account;

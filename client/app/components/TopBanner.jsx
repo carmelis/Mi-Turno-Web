@@ -1,7 +1,7 @@
 "use client";
 import styles from "../../styles/components/TopBanner.module.css";
 import { MdClose } from "react-icons/md";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const TopBanner = () => {
   const [openTopBanner, setOpenTopBanner] = useState(true);
