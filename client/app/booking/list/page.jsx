@@ -1,7 +1,9 @@
-const Account = () => {
-    return (
-        <hi>Bye World!</hi>
-    )
-}
+import ListBookings from "../../components/ListBookings";
 
-export default Account
+export default async function BookingsPage() {
+  return (
+    <main>
+      <ListBookings />
+    </main>
+  );
+}

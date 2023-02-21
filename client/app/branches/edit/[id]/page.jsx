@@ -2,7 +2,7 @@ import FormBranch from "../../../components/FormBranch";
 
 const fetchBranch = (id) => {
   // Pendiente llamada al back para traer todas las branches
-  /* return axios.get(`https://localhost:3000/api/branches/{id}`).then((res) => res.json()) */
+  /* return axios.get(`https://localhost:5000/api/branches/{id}`).then((res) => res.json()) */
   return {
     id,
     name: "Sucursal 1",
@@ -14,7 +14,7 @@ const fetchBranch = (id) => {
   };
 };
 
-export default function BranchPage({ params }) {
+export default function EditBranchPage({ params }) {
   const { id } = params;
   const branch = fetchBranch(id);
 

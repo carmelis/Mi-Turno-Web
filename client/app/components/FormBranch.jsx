@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Button from "../commons/Button/Button";
 
 const shifts = ["1", "2", "3", "4", "5", "6"];
 const startTimes = ["07:30", "08:00", "08:30", "09:00", "09:30", "10:00"];
@@ -18,19 +19,21 @@ export default function FormBranch({ branch = null, newMovie = true }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (newMovie) {
-      // Pendiente llamada al back para traer todas las branches
-      // return axios.post(`https://localhost:3000/api/branches/create`).then((res) => res.json())
+      // Pendiente llamada al back para crear una branch
+      // return axios.post(`https://localhost:5000/api/branches/create`).then((res) => res.json())
       console.log("agregar");
     } else {
       // Pendiente llamada al back para traer todas las branches
-      // return axios.put(`https://localhost:3000/api/branches/edit/{branch.id}`).then((res) => res.json())
+      // return axios.put(`https://localhost:5000/api/branches/edit/{branch.id}`).then((res) => res.json())
       console.log("editar");
     }
   };
 
   return (
     <form className="form form-height" onSubmit={handleSubmit}>
-      <h2 className="form-title">Editar sucursal</h2>
+      <h2 className="form-title">
+        {newMovie ? "Crear una nueva sucursal" : "Editar sucursal"}
+      </h2>
       <div className="form-input-group w100">
         <label className="form-label">Nombre</label>
         <input
@@ -116,11 +119,13 @@ export default function FormBranch({ branch = null, newMovie = true }) {
           </select>
         </div>
       </div>
-      <button className="btn-primary w100" type="submit">
-        {newMovie ? "Agregar" : "Editar"}
-      </button>
+      <Button
+        className={"btn-primary w100"}
+        title={newMovie ? "Agregar" : "Editar"}
+        type="submit"
+      />
       <Link className="w100" href="/branches">
-        <button className="btn-tertiary w100">Volver</button>
+        <Button className={"btn-tertiary w100"} title={"Volver"} />
       </Link>
     </form>
   );
