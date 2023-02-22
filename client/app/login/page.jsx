@@ -1,6 +1,6 @@
-import LoginForm from "./components/LoginForm";
+import LoginForm from "../components/LoginForm";
 
-function Home() {
+function page() {
   return (
     <section className="section-a">
       <LoginForm />
@@ -8,5 +8,5 @@ function Home() {
   );
 }
 
-export default Home;
+export default page;
 

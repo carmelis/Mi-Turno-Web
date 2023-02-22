@@ -3,7 +3,7 @@ import Button from "../commons/Button/Button";
 
 const fetchBranches = () => {
   // Pendiente llamada al back para traer todas las branches
-  /* return axios.get("https://localhost:3000/api/branches").then((res) => res.json()) */
+  /* return axios.get("https://localhost:5000/api/branches").then((res) => res.json()) */
   return [
     {
       id: 1,
@@ -29,21 +29,39 @@ const fetchBranches = () => {
 export default async function ListBranches() {
   const branches = await fetchBranches();
 
-  return branches.map((branch) => (
-    <div key={branch.id}>
-      <p>Nombre</p>
-      <p>{branch.name}</p>
-      <p>Mail</p>
-      <p>{branch.mail}</p>
-      <p>Capacidad máxima</p>
-      <p>{branch.maxShifts}</p>
-      <p>Horario de Inicio y Cierre</p>
-      <p>
-        {branch.startTime} - {branch.endTime}
-      </p>
-      <Link href={`/branches/edit/${branch.id}`}>
-        <Button title={"Editar"} />
-      </Link>
-    </div>
-  ));
+  return (
+    <section>
+      <h1 className="list-title">Sucursales</h1>
+      <div className="list">
+        {branches.map((branch) => (
+          <div key={branch.id} className="list-item">
+            <div className="list-column w22-5">
+              <p className="list-label">Nombre</p>
+              <p className="list-content">{branch.name}</p>
+            </div>
+            <div className="list-column w22-5">
+              <p className="list-label">Mail</p>
+              <p className="list-content">{branch.mail}</p>
+            </div>
+            <div className="list-column w22-5">
+              <p className="list-label">Capacidad máxima</p>
+              <p className="list-content">{branch.maxShifts}</p>
+            </div>
+            <div className="list-column w22-5">
+              <p className="list-label">Horario de Inicio y Cierre</p>
+              <p className="list-content">
+                {branch.startTime} - {branch.endTime}
+              </p>
+            </div>
+            <Link
+              className="list-column w10"
+              href={`/branches/edit/${branch.id}`}
+            >
+              <Button className={"btn-secondary"} title={"Editar"} />
+            </Link>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }
