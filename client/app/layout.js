@@ -2,7 +2,7 @@
 import "../styles/globals.css";
 import TopBanner from "./components/TopBanner";
 import Nadvar from "./components/Navbar";
-import Register from "./register/page"
+import Register from "./login/page"
 export default function RootLayout({ children }) {
   return (
     <html>
