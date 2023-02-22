@@ -1,0 +1,53 @@
+.caja {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 96px;
+
+  position: absolute;
+  width: 100%;
+  height: 76px;
+  left: 0px;
+  top: 36px;
+  background: #ffffff;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+}
+
+.caja2 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.botonNav {
+  font-weight: 600;
+  font-size: 14px;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  height: 20px;
+}
+
+.svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+.botonMiCuenta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 2px;
+  width: 86px;
+  height: 20px;
+  border-radius: 8px;
+  flex: none;
+  order: 3;
+  flex-grow: 0;
+}

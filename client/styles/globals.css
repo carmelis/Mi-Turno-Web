@@ -147,7 +147,31 @@ body {
 }
 
 /* ========== FORM ========== */
-
+/* quise usarlo como variables globales y no funciona */
+.inputDesktop1{
+box-sizing: border-box;
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 12px 8px 12px 12px;
+gap: 8px;
+width: 516px;
+height: 44px;
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+}
+.inputDesktop1Text{
+width: 468px;
+height: 20px;
+flex: none;
+order: 0;
+flex-grow: 1;
+}
 .form {
   display: flex;
   flex-direction: column;
@@ -229,7 +253,6 @@ body {
 }
 
 /* ========== BUTTONS ========== */
-
 .btn-primary {
   background-color: var(--color-primary);
   border-radius: 8px;
