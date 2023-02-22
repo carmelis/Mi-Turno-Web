@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/register/Register.module.css";
+import styles from "../../styles/login/Login.module.css";
 
 function page() {
   return (
