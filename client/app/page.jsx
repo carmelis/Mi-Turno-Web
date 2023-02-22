@@ -1,6 +1,12 @@
-"use client";
-const HomePage = () => {
-  return <hi>Hello World!</hi>;
-};
+import LoginForm from "./components/LoginForm";
 
-export default HomePage;
+function Home() {
+  return (
+    <section className="section-a">
+      <LoginForm />
+    </section>
+  );
+}
+
+export default Home;
+
