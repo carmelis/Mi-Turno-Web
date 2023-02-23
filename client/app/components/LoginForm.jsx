@@ -1,3 +1,4 @@
+import Button from "../commons/Button/Button";
 import styles from "../../styles/components/LoginForm.module.css";
 
 const LoginForm = () => {
@@ -10,28 +11,29 @@ const LoginForm = () => {
         <h3 className={styles.usuario}>Usuario</h3>
       </div>
       <div>
-        <input type="text" className={styles.inputUsuario} />
+        <input type="text" className="input" />
       </div>
       <div>
         {" "}
         <h3 className={styles.contrasena}>Contraseña</h3>
       </div>
       <div>
-        <input type="password" className={styles.inputContrasena} />
+        <input type="password" className="input" />
       </div>
       <div>
         <h2 className={styles.recordarContrasena}>¿Olvidaste tu Contraseña?</h2>
       </div>
       <div>
-        <button className={styles.botonIngresar}>Ingresar</button>
+        <Button className={"btn-primary w100"} title={"Ingresar"} />
       </div>
 
       <hr className={styles.border} />
 
       <div>
-        <button className={styles.botonRegistrate}>
-          ¿No tenés Cuenta? Registrate
-        </button>
+        <Button
+          className={"btn-secondary w100"}
+          title={"¿No tenés Cuenta? Registrate"}
+        />
       </div>
     </div>
   );

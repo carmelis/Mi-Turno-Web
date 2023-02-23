@@ -1,7 +1,6 @@
-//"use client";
-
 import Link from "next/link";
 import Button from "../commons/Button/Button";
+import styles from "../../styles/components/List.module.css";
 
 const loadOptions = (rol) => {
   const options = ["Editar", "Cancelar"];
@@ -52,39 +51,33 @@ export default async function ListBookings() {
   const options = loadOptions(user.rol);
   const bookings = await fetchBookings(user);
 
-  /* const handleChange = (e) => {
-    e.preventDefault();
-    console.log(e.target.value);
-  }; */
-
   return (
-    <section>
-      <h1 className="list-title">Reservas</h1>
-      <div className="list">
+    <>
+      <h1 className={styles["list-title"]}>Reservas</h1>
+      <div className={styles.list}>
         {bookings.map((booking) => (
-          <div key={booking.id} className="list-item">
-            <div className="list-column w20">
-              <p className="list-label">Nombre</p>
-              <p className="list-content">{booking.name}</p>
+          <div key={booking.id} className={styles["list-item"]}>
+            <div className={`${styles["list-column"]} w20`}>
+              <p className={styles["list-label"]}>Nombre</p>
+              <p className={styles["list-content"]}>{booking.name}</p>
             </div>
-            <div className="list-column w20">
-              <p className="list-label">Reserva</p>
-              <p className="list-content">{booking.date}</p>
+            <div className={`${styles["list-column"]} w20`}>
+              <p className={styles["list-label"]}>Reserva</p>
+              <p className={styles["list-content"]}>{booking.date}</p>
             </div>
-            <div className="list-column w20">
-              <p className="list-label">Día de la reserva</p>
-              <p className="list-content">{booking.createdAt}</p>
+            <div className={`${styles["list-column"]} w20`}>
+              <p className={styles["list-label"]}>Día de la reserva</p>
+              <p className={styles["list-content"]}>{booking.createdAt}</p>
             </div>
-            <div className="list-column w20">
-              <p className="list-label">Nº de la reserva</p>
-              <p className="list-content">{booking.id}</p>
+            <div className={`${styles["list-column"]} w20`}>
+              <p className={styles["list-label"]}>Nº de la reserva</p>
+              <p className={styles["list-content"]}>{booking.id}</p>
             </div>
-            <div className="list-column">
+            <div className={styles["list-column"]}>
               <select
                 className="btn-quarth w100"
                 name="option"
-                value={options[0]}
-                // onChange={handleChange}
+                defaultValue={options[0]}
               >
                 {options.map((op, i) => (
                   <option key={i} value={op} className="btn-quarth w100">
@@ -93,16 +86,9 @@ export default async function ListBookings() {
                 ))}
               </select>
             </div>
-
-            {/* <Link
-              className="list-column w10"
-              href={`/bookings/edit/${booking.id}`}
-            >
-              <Button className={"btn-secondary"} title={"Editar"} />
-            </Link> */}
           </div>
         ))}
       </div>
-    </section>
+    </>
   );
 }

@@ -2,8 +2,8 @@ import FormOperator from "../../components/FormOperator";
 
 export default function CreateOperatorPage() {
   return (
-    <main>
+    <section className="section bg-grey2">
       <FormOperator />
-    </main>
+    </section>
   );
 }

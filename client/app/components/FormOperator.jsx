@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import Button from "../commons/Button/Button";
+import styles from "../../styles/components/Form.module.css";
 
 const branches = ["Balvanera", "Nuñez", "Palermo", "Recoleta", "Villa Crespo"];
 
@@ -28,12 +29,12 @@ export default function FormOperator({ operator = null, newOperator = true }) {
   };
 
   return (
-    <form className="form form-height" onSubmit={handleSubmit}>
-      <h2 className="form-title">
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <h2 className={styles["form-title"]}>
         {newOperator ? "Crear un nuevo operador" : "Editar operador"}
       </h2>
-      <div className="form-input-group w100">
-        <label className="form-label">Nombre</label>
+      <div className={`${styles["form-input-group"]} w100`}>
+        <label className={styles["form-label"]}>Nombre</label>
         <input
           className="input w100"
           required
@@ -44,8 +45,8 @@ export default function FormOperator({ operator = null, newOperator = true }) {
           onChange={handleChange}
         />
       </div>
-      <div className="form-input-group w100">
-        <label className="form-label">Correo electrónico</label>
+      <div className={`${styles["form-input-group"]} w100`}>
+        <label className={styles["form-label"]}>Correo electrónico</label>
         <input
           className="input w100"
           required
@@ -56,9 +57,9 @@ export default function FormOperator({ operator = null, newOperator = true }) {
           onChange={handleChange}
         />
       </div>
-      <div className="form-row">
-        <div className="form-input-group w50">
-          <label className="form-label">DNI</label>
+      <div className={styles["form-row"]}>
+        <div className={`${styles["form-input-group"]} w50`}>
+          <label className={styles["form-label"]}>DNI</label>
           <input
             className="input w100"
             required
@@ -69,8 +70,8 @@ export default function FormOperator({ operator = null, newOperator = true }) {
             onChange={handleChange}
           />
         </div>
-        <div className="form-input-group w50">
-          <label className="form-label">Sucursal</label>
+        <div className={`${styles["form-input-group"]} w50`}>
+          <label className={styles["form-label"]}>Sucursal</label>
           <select
             className="input w100"
             name="branch"
@@ -85,13 +86,15 @@ export default function FormOperator({ operator = null, newOperator = true }) {
           </select>
         </div>
       </div>
-      <div className="form-row">
+      <div className={styles["form-row"]}>
         <div
           className={
-            newOperator ? "form-input-group w50" : "form-input-group w100"
+            newOperator
+              ? `${styles["form-input-group"]} w50`
+              : `${styles["form-input-group"]} w100`
           }
         >
-          <label className="form-label">Contraseña</label>
+          <label className={styles["form-label"]}>Contraseña</label>
           <input
             className="input w100"
             required
@@ -103,8 +106,8 @@ export default function FormOperator({ operator = null, newOperator = true }) {
           />
         </div>
         {newOperator ? (
-          <div className="form-input-group w50">
-            <label className="form-label">Repetir contraseña</label>
+          <div className={`${styles["form-input-group"]} w50`}>
+            <label className={styles["form-label"]}>Repetir contraseña</label>
             <input
               className="input w100"
               required
