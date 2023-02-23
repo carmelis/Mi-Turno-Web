@@ -2,7 +2,7 @@ import LoginForm from "./components/LoginForm";
 
 function Home() {
   return (
-    <section className="section-a">
+    <section className="section">
       <LoginForm />
     </section>
   );

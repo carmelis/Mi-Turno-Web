@@ -2,8 +2,8 @@ import ListOperators from "../components/ListOperators";
 
 export default async function OperatorsPage() {
   return (
-    <main className="bg-white">
+    <section className="section">
       <ListOperators />
-    </main>
+    </section>
   );
 }

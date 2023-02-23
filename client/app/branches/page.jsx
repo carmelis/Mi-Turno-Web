@@ -2,8 +2,8 @@ import ListBranches from "../components/ListBranches";
 
 export default async function BranchesPage() {
   return (
-    <main className="bg-white">
+    <section className="section">
       <ListBranches />
-    </main>
+    </section>
   );
 }

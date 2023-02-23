@@ -29,7 +29,7 @@ export default async function ListOperators() {
   const operators = await fetchOperators();
 
   return (
-    <section>
+    <>
       <h1 className={styles["list-title"]}>Operadores</h1>
       <div className={styles.list}>
         {operators.map((operator) => (
@@ -59,6 +59,6 @@ export default async function ListOperators() {
           </div>
         ))}
       </div>
-    </section>
+    </>
   );
 }

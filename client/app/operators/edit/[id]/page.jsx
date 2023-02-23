@@ -18,8 +18,8 @@ export default function EditOperatorPage({ params }) {
   const operator = fetchOperator(id);
 
   return (
-    <main className="bg-grey2">
+    <section className="section bg-grey2">
       <FormOperator operator={operator} newOperator={false} />
-    </main>
+    </section>
   );
 }

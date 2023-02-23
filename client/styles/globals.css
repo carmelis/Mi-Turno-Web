@@ -24,6 +24,7 @@
 
 * {
   font-family: "Roboto", sans-serif;
+  font-style: normal;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -45,8 +46,6 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   color: var(--color-black);
-  margin-top: 2rem;
-  justify-content: center;
 }
 
 /* ========== UTILS ========== */
@@ -77,6 +76,10 @@ body {
 
 .bg-grey2 {
   background-color: var(--color-grey2);
+}
+
+.section {
+  padding: 48px 0;
 }
 
 /* quise usarlo como variables globales y no funciona */

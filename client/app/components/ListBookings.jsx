@@ -52,7 +52,7 @@ export default async function ListBookings() {
   const bookings = await fetchBookings(user);
 
   return (
-    <section>
+    <>
       <h1 className={styles["list-title"]}>Reservas</h1>
       <div className={styles.list}>
         {bookings.map((booking) => (
@@ -89,6 +89,6 @@ export default async function ListBookings() {
           </div>
         ))}
       </div>
-    </section>
+    </>
   );
 }

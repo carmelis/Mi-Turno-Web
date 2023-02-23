@@ -31,7 +31,7 @@ export default async function ListBranches() {
   const branches = await fetchBranches();
 
   return (
-    <section>
+    <>
       <h1 className={styles["list-title"]}>Sucursales</h1>
       <div className={styles.list}>
         {branches.map((branch) => (
@@ -63,6 +63,6 @@ export default async function ListBranches() {
           </div>
         ))}
       </div>
-    </section>
+    </>
   );
 }
