@@ -2,7 +2,7 @@ import FormOperator from "../../components/FormOperator";
 
 export default function CreateOperatorPage() {
   return (
-    <main>
+    <main className="bg-grey2">
       <FormOperator />
     </main>
   );

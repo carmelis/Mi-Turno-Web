@@ -18,7 +18,7 @@ export default function EditOperatorPage({ params }) {
   const operator = fetchOperator(id);
 
   return (
-    <main>
+    <main className="bg-grey2">
       <FormOperator operator={operator} newOperator={false} />
     </main>
   );

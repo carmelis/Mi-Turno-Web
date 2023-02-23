@@ -71,6 +71,14 @@ body {
   width: 100%;
 }
 
+.bg-white {
+  background-color: var(--color-white);
+}
+
+.bg-grey2 {
+  background-color: var(--color-grey2);
+}
+
 /* quise usarlo como variables globales y no funciona */
 .inputDesktop1 {
   box-sizing: border-box;
