@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import Button from "../commons/Button/Button";
+import styles from "../../styles/components/Form.module.css";
 
 const shifts = ["1", "2", "3", "4", "5", "6"];
 const startTimes = ["07:30", "08:00", "08:30", "09:00", "09:30", "10:00"];
@@ -30,12 +31,12 @@ export default function FormBranch({ branch = null, newMovie = true }) {
   };
 
   return (
-    <form className="form form-height" onSubmit={handleSubmit}>
-      <h2 className="form-title">
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <h2 className={styles["form-title"]}>
         {newMovie ? "Crear una nueva sucursal" : "Editar sucursal"}
       </h2>
-      <div className="form-input-group w100">
-        <label className="form-label">Nombre</label>
+      <div className={`${styles["form-input-group"]} w100`}>
+        <label className={styles["form-label"]}>Nombre</label>
         <input
           className="input w100"
           required
@@ -46,8 +47,8 @@ export default function FormBranch({ branch = null, newMovie = true }) {
           onChange={handleChange}
         />
       </div>
-      <div className="form-input-group w100">
-        <label className="form-label">Correo electrónico</label>
+      <div className={`${styles["form-input-group"]} w100`}>
+        <label className={styles["form-label"]}>Correo electrónico</label>
         <input
           className="input w100"
           required
@@ -58,9 +59,9 @@ export default function FormBranch({ branch = null, newMovie = true }) {
           onChange={handleChange}
         />
       </div>
-      <div className="form-row">
-        <div className="form-input-group w50">
-          <label className="form-label">Teléfono</label>
+      <div className={styles["form-row"]}>
+        <div className={`${styles["form-input-group"]} w50`}>
+          <label className={styles["form-label"]}>Teléfono</label>
           <input
             className="input w100"
             required
@@ -71,8 +72,8 @@ export default function FormBranch({ branch = null, newMovie = true }) {
             onChange={handleChange}
           />
         </div>
-        <div className="form-input-group w50">
-          <label className="form-label">Capacidad máxima</label>
+        <div className={`${styles["form-input-group"]} w50`}>
+          <label className={styles["form-label"]}>Capacidad máxima</label>
           <select
             className="input w100"
             name="maxShifts"
@@ -87,9 +88,9 @@ export default function FormBranch({ branch = null, newMovie = true }) {
           </select>
         </div>
       </div>
-      <div className="form-row">
-        <div className="form-input-group w50">
-          <label className="form-label">Horario de Inicio</label>
+      <div className={styles["form-row"]}>
+        <div className={`${styles["form-input-group"]} w50`}>
+          <label className={styles["form-label"]}>Horario de Inicio</label>
           <select
             className="input w100"
             name="startTime"
@@ -103,8 +104,8 @@ export default function FormBranch({ branch = null, newMovie = true }) {
             ))}
           </select>
         </div>
-        <div className="form-input-group w50">
-          <label className="form-label">Horario de Cierre</label>
+        <div className={`${styles["form-input-group"]} w50`}>
+          <label className={styles["form-label"]}>Horario de Cierre</label>
           <select
             className="input w100"
             name="endTime"

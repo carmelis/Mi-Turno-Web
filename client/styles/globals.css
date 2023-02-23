@@ -71,160 +71,30 @@ body {
   width: 100%;
 }
 
-/* ========== LIST ========== */
-.list {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 16px;
-  position: absolute;
-  width: 85%;
-  height: 740px;
-  left: 0;
-  right: 0;
-  top: 208px;
-  margin: auto;
-}
-
-.list-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 24px;
-  gap: 16px;
-  width: 100%;
-  height: 92px;
-  background: var(--color-white);
-  border: 1px solid var(--color-grey2);
-  border-radius: 12px;
-}
-
-.list-column {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 4px;
-  height: 36px;
-}
-
-.list-label {
-  height: 16px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-  color: var(--color-grey8);
-  flex: none;
-  align-self: stretch;
-}
-
-.list-content {
-  height: 16px;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 16px;
-  font-feature-settings: "zero" on;
-  flex: none;
-  align-self: stretch;
-}
-
-.list-title {
-  position: absolute;
-  width: 85%;
-  height: 24px;
-  left: 0;
-  right: 0;
-  top: 160px;
-  margin: auto;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
-  font-feature-settings: "zero" on;
-}
-
-/* ========== FORM ========== */
 /* quise usarlo como variables globales y no funciona */
-.inputDesktop1{
-box-sizing: border-box;
-display: flex;
-flex-direction: row;
-align-items: center;
-padding: 12px 8px 12px 12px;
-gap: 8px;
-width: 516px;
-height: 44px;
-background: #FFFFFF;
-border: 1px solid #E1E1E1;
-border-radius: 8px;
-flex: none;
-order: 1;
-align-self: stretch;
-flex-grow: 0;
-}
-.inputDesktop1Text{
-width: 468px;
-height: 20px;
-flex: none;
-order: 0;
-flex-grow: 1;
-}
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 40px 40px 32px;
-  position: absolute;
-  gap: 16px;
-  width: 878px;
-  margin: auto;
-  left: 0;
-  right: 0;
-  top: 160px;
-  background: var(--color-white);
-  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
-}
-
-.form-input-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 2px;
-  height: 66px;
-}
-
-.form-row {
+.inputDesktop1 {
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 16px;
-  width: 100%;
-  height: 66px;
-}
-
-.form-label {
-  height: 20px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  display: flex;
   align-items: center;
+  padding: 12px 8px 12px 12px;
+  gap: 8px;
+  width: 516px;
+  height: 44px;
+  background: #ffffff;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
 }
-
-.form-title {
-  height: 24px;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
-  font-feature-settings: "zero" on;
+.inputDesktop1Text {
+  width: 468px;
+  height: 20px;
+  flex: none;
+  order: 0;
+  flex-grow: 1;
 }
 
 /* ========== SECTIONS ========== */
