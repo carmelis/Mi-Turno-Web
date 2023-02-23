@@ -1,0 +1,153 @@
+.cajaRegister {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  gap: 20px;
+  position: absolute;
+  width: 580px;
+  height: 622px;
+  left: calc(50% - 580px / 2);
+  top: 84px;
+  background: #ffffff;
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+}
+
+.titulo {
+  width: 516px;
+  height: 32px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  font-feature-settings: "zero" on;
+  color: #000000;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.botonAtras {
+  width: 492px;
+  height: 16px;
+  color: #a442f1;
+}
+
+.cajaInputs {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cajaLeft {
+  float: left;
+}
+
+.cajaRigth {
+  float: right;
+}
+
+.subTitulo {
+  width: 250px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+.inputChico {
+  width: 240px;
+  height: 44px;
+  background: #ffffff;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+}
+.inputGrande {
+  box-sizing: border-box;
+  width: 506px;
+  height: 44px;
+  background: #ffffff;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+}
+
+.cajaAdvertencia {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 20px;
+  gap: 12px;
+  width: 516px;
+  height: 104px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.tituloAdvertencia {
+  width: 476px;
+  height: 16px;
+  font-weight: 500;
+  font-size: 12px;
+  color: #6e6e6e;
+}
+
+.subtituloAdvertencia {
+  width: 202px;
+  height: 16px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #6e6e6e;
+}
+
+.borderAdvertencia {
+  width: 476px;
+  height: 0px;
+  border: 1px solid #e1e1e1;
+}
+
+.cajaRegistrarme {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  gap: 4px;
+  width: 516px;
+  height: 44px;
+  background: #a442f1;
+  border-radius: 8px;
+}
+
+.botonRegistrarme {
+  width: 468px;
+  height: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+}
+.cajaIniciarSesion {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  gap: 4px;
+  width: 516px;
+  height: 44px;
+  background: rgba(164, 66, 241, 0.1);
+  border-radius: 8px;
+}
+.botonIniciarSesion {
+  width: 468px;
+  height: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #a442f1;
+}
