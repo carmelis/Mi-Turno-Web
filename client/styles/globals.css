@@ -78,50 +78,19 @@ body {
   background-color: var(--color-grey2);
 }
 
+/* ========== SECTIONS ========== */
+
 .section {
   padding: 48px 0;
 }
 
-/* quise usarlo como variables globales y no funciona */
-.inputDesktop1 {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 12px 8px 12px 12px;
-  gap: 8px;
-  width: 516px;
-  height: 44px;
-  background: #ffffff;
-  border: 1px solid #e1e1e1;
-  border-radius: 8px;
-  flex: none;
-  order: 1;
-  align-self: stretch;
-  flex-grow: 0;
-}
-.inputDesktop1Text {
-  width: 468px;
-  height: 20px;
-  flex: none;
-  order: 0;
-  flex-grow: 1;
-}
-
-/* ========== SECTIONS ========== */
 .section-a {
-  position: absolute;
-  margin-top: -2.25rem;
-  padding: 5.25rem 6rem 2rem;
-  background-color: var(--color-white);
-  min-height: 100vh;
-  min-width: 100vw;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.section-b {
+/* .section-b {
   position: absolute;
   margin-top: -2.25rem;
   padding: 5.25rem 0rem 2rem;
@@ -131,7 +100,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-}
+} */
 
 /* ========== BUTTONS ========== */
 .btn-primary {
