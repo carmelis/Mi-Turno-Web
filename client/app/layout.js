@@ -1,8 +1,7 @@
 "use client";
 import "../styles/globals.css";
 import TopBanner from "./components/TopBanner";
-import Nadvar from "./components/Navbar";
-
+import Navbar from "./components/Navbar";
 
 export default function RootLayout({ children }) {
   return (
@@ -10,7 +9,7 @@ export default function RootLayout({ children }) {
       <head />
       <body>
         <TopBanner />
-        <Nadvar />
+        <Navbar />
         {children}
       </body>
     </html>

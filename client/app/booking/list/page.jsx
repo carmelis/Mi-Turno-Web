@@ -2,8 +2,8 @@ import ListBookings from "../../components/ListBookings";
 
 export default async function BookingsPage() {
   return (
-    <main>
+    <section className="section">
       <ListBookings />
-    </main>
+    </section>
   );
 }

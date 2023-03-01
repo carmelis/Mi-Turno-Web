@@ -1,9 +1,4 @@
 .banner {
-  position: fixed;
-  z-index: 999;
-  width: 100%;
-  height: 2.25rem;
-  top: 0px;
   background: var(--color-grey2);
   display: flex;
   justify-content: center;

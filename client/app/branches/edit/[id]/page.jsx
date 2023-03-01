@@ -19,8 +19,8 @@ export default function EditBranchPage({ params }) {
   const branch = fetchBranch(id);
 
   return (
-    <main>
+    <section className="section bg-grey2">
       <FormBranch branch={branch} newMovie={false} />
-    </main>
+    </section>
   );
 }

@@ -4,7 +4,7 @@ import { MdArrowBack } from "react-icons/md";
 
 const Cancel = () => {
   return (
-    <section className="section-a">
+    <section className="section section-a">
       <div>
         <a
           href=""
@@ -15,7 +15,8 @@ const Cancel = () => {
             alignItems: "center",
             alignSelf: "flex-start",
             position: "relative",
-          }}>
+          }}
+        >
           <MdArrowBack style={{ height: "1.25rem", width: "auto" }} /> Atrás
         </a>
         <div
@@ -23,7 +24,8 @@ const Cancel = () => {
             display: "flex",
             flexDirection: "row",
             gap: "7.1875rem",
-          }}>
+          }}
+        >
           <CancelPanel />
           <BookingInformation />
         </div>
