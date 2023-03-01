@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import modelOptions from "./model.options.js";
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -27,6 +28,6 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
-});
+}, modelOptions);
 
 export default mongoose.model("users", userSchema);
