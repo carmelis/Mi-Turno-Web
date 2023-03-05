@@ -17,7 +17,7 @@ const branchSchema = new mongoose.Schema(
     },
     active: {
       type: Boolean,
-      required: true,
+      default: true,
     },
     maxShifts: {
       type: Number,
