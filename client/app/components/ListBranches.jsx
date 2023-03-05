@@ -3,28 +3,7 @@ import Button from "../commons/Button/Button";
 import styles from "../../styles/components/List.module.css";
 
 const fetchBranches = () => {
-  // Pendiente llamada al back para traer todas las branches
-  /* return axios.get("https://localhost:5000/api/branches").then((res) => res.json()) */
-  return [
-    {
-      id: 1,
-      name: "Sucursal 1",
-      mail: "sucursal1@test.com",
-      phone: 21323123123,
-      maxShifts: 2,
-      startTime: "8:00",
-      endTime: "17:00",
-    },
-    {
-      id: 2,
-      name: "Sucursal 2",
-      mail: "sucursal2@test.com",
-      phone: 56378101,
-      maxShifts: 2,
-      startTime: "9:30",
-      endTime: "18:30",
-    },
-  ];
+  return fetch("http://localhost:5000/api/branch").then((res) => res.json());
 };
 
 export default async function ListBranches() {
