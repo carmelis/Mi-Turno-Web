@@ -9,7 +9,6 @@ const fetchBranch = (id) => {
 export default async function EditBranchPage({ params }) {
   const { id } = params;
   const branch = await fetchBranch(id);
-  console.log("branch", branch);
 
   return (
     <section className="section bg-grey2">

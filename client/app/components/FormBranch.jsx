@@ -1,16 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import Button from "../commons/Button/Button";
 import styles from "../../styles/components/Form.module.css";
 
-const shifts = ["1", "2", "3", "4", "5", "6"];
 const startTimes = ["07:30", "08:00", "08:30", "09:00", "09:30", "10:00"];
 const endTimes = ["17:30", "18:00", "18:30", "19:00", "19:30", "20:00"];
 
 export default function FormBranch({ branch = null, newMovie = true }) {
+  const router = useRouter();
   const [form, setForm] = useState(branch);
+
+  useEffect(() => {
+    if (branch && branch.status) {
+      // pendiente un pop up
+      alert("Error. No se encontró la información de la sucursal");
+      router.back();
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -20,17 +29,33 @@ export default function FormBranch({ branch = null, newMovie = true }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (newMovie) {
-      // Pendiente llamada al back para crear una branch
-      // return axios.post(`https://localhost:5000/api/branches/create`).then((res) => res.json())
-      console.log("agregar");
+      fetch(`http://localhost:5000/api/branch`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      }).then(() => {
+        // pendiente pop up
+        alert("Sucursal creada con éxito");
+        router.back();
+      });
     } else {
-      // Pendiente llamada al back para traer todas las branches
-      // return axios.put(`https://localhost:5000/api/branches/edit/{branch.id}`).then((res) => res.json())
-      console.log("editar");
+      fetch(`http://localhost:5000/api/branch/${branch.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      }).then(() => {
+        // pendiente pop up
+        alert("Sucursal modificada con éxito");
+        router.back();
+      });
     }
   };
 
-  return (
+  return !branch || !branch.status ? (
     <form className={styles.form} onSubmit={handleSubmit}>
       <h2 className={styles["form-title"]}>
         {newMovie ? "Crear una nueva sucursal" : "Editar sucursal"}
@@ -74,18 +99,15 @@ export default function FormBranch({ branch = null, newMovie = true }) {
         </div>
         <div className={`${styles["form-input-group"]} w50`}>
           <label className={styles["form-label"]}>Capacidad máxima</label>
-          <select
+          <input
             className="input w100"
+            required
+            type="number"
+            autoComplete="off"
             name="maxShifts"
-            value={form ? form.maxShifts : ""}
+            value={form ? form.maxShifts : 1}
             onChange={handleChange}
-          >
-            {shifts.map((shift, i) => (
-              <option key={i} value={shift}>
-                {shift}
-              </option>
-            ))}
-          </select>
+          />
         </div>
       </div>
       <div className={styles["form-row"]}>
@@ -93,6 +115,7 @@ export default function FormBranch({ branch = null, newMovie = true }) {
           <label className={styles["form-label"]}>Horario de Inicio</label>
           <select
             className="input w100"
+            required
             name="startTime"
             value={form ? form.startTime : ""}
             onChange={handleChange}
@@ -108,6 +131,7 @@ export default function FormBranch({ branch = null, newMovie = true }) {
           <label className={styles["form-label"]}>Horario de Cierre</label>
           <select
             className="input w100"
+            required
             name="endTime"
             value={form ? form.endTime : ""}
             onChange={handleChange}
@@ -129,5 +153,7 @@ export default function FormBranch({ branch = null, newMovie = true }) {
         <Button className={"btn-tertiary w100"} title={"Volver"} />
       </Link>
     </form>
+  ) : (
+    ""
   );
 }
