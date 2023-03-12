@@ -1,65 +1,39 @@
-import UserService from "../services/user.js";
-import {
-  error,
-  badrequest,
-  ok,
-  created,
-  unauthorized,
-  notfound,
-} from "../helpers/response.helper.js";
+import responseHelper from "../helpers/response.helper.js";
+import userModel from "../models/User.js";
+import jsonwebtoken from "jsonwebtoken";
 
-class UserController {
-  // GET USER
-  static async getUser(req, res) {
-    const { id } = req.params;
-    try {
-      const user = await UserService.getUser(id);
-      user ? ok(res, user) : notfound(res);
-    } catch (err) {
-      error(res);
-    }
+const signup = async (req, res) => {
+  try {
+    const { name, dni, email, password } = req.body;
+
+    const checkUser = await userModel.findOne({ dni });
+
+    if (checkUser)
+      return responseHelper.badrequest(res, "This person already has an account.");
+
+    const user = new userModel();
+
+    user.name = name;
+    user.dni = dni;
+    user.email = email
+    user.setPassword(password);
+
+    await user.save();
+
+    const token = jsonwebtoken.sign(
+      { data: user.id },
+      process.env.TOKEN_SECRET,
+      { expiresIn: "24h" }
+    );
+
+    responseHelper.created(res, {
+      token,
+      ...user._doc,
+      id: user.id,
+    });
+  } catch {
+    responseHelper.error(res);
   }
+};
 
-  // GET ALL USERS
-  static async getAllUsers(req, res) {
-    const { id } = req.params;
-    try {
-      const user = await UserService.getAllUsers(id);
-      user ? ok(res, user) : notfound(res);
-    } catch (err) {
-      error(res);
-    }
-  }
-
-  // CREATE USER - REGISTER
-  static async create(req, res) {
-    const body = req.body;
-    try {
-      const user = await UserService.create(body);
-      created(res, user);
-    } catch (err) {
-      badrequest(res, err.message);
-    }
-  }
-
-  //LOG IN
-  static async login(req, res) {
-    const { email, password } = req.body;
-    const { error, data } = await UserService.login(email, password);
-
-    if (error) {
-      return res.status(data.status || 500).send({ message: data.message });
-    }
-    const token = generateToken(data);
-    res.cookie("token", token);
-    res.send(data);
-  }
-
-  // LOG OUT
-  static async logout(req, res) {
-    res.clearCookie("token");
-    res.sendStatus(204);
-  }
-}
-
-export default UserController;
+export default { signup };

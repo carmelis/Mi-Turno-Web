@@ -1,5 +1,5 @@
 import { validateToken } from "../helpers/token.helper.js";
-import { unauthorized } from "../helpers/response.helper.js";
+import unauthorized  from "../helpers/response.helper.js";
 
 export function validateAuth(req, res, next) {
   const token = req.cookies.token;
@@ -14,6 +14,7 @@ export function validateAuth(req, res, next) {
 
 export function validateAdmin(req, res, next) {
   validateAuth(req, res, next);
+  console.log(req.user)
   if (req.user !== "admin") return unauthorized(res);
   next();
 }

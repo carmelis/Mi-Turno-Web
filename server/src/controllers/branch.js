@@ -1,21 +1,14 @@
 import BranchService from "../services/branch.js";
-import {
-  error,
-  badrequest,
-  ok,
-  created,
-  unauthorized,
-  notfound,
-} from "../helpers/response.helper.js";
+import responseHelper from "../helpers/response.helper.js";
 
 class BranchController {
   // GET ALL BRANCHES
   static async getAll(req, res) {
     try {
       const branch = await BranchService.getAll();
-      branch ? ok(res, branch) : notfound(res);
+      branch ? responseHelper.ok(res, branch) : responseHelper.notfound(res);
     } catch (err) {
-      error(res, err.message);
+      responseHelper.error(res, err.message);
     }
   }
   // GET BRANCH
@@ -23,9 +16,9 @@ class BranchController {
     const { id } = req.params;
     try {
       const branch = await BranchService.getById(id);
-      branch ? ok(res, branch) : notfound(res);
+      branch ? responseHelper.ok(res, branch) : responseHelper.notfound(res);
     } catch (err) {
-      error(res, err.message);
+      responseHelper.error(res, err.message);
     }
   }
 
@@ -34,9 +27,9 @@ class BranchController {
     const body = req.body;
     try {
       const branch = await BranchService.create(body);
-      created(res, branch);
+      responseHelper.created(res, branch);
     } catch (err) {
-      badrequest(res, err.message);
+      responseHelper.badrequest(res, err.message);
     }
   }
 
@@ -46,9 +39,9 @@ class BranchController {
     const body = req.body;
     try {
       const branch = await BranchService.update(id, body);
-      created(res, branch);
+      responseHelper.created(res, branch);
     } catch (err) {
-      badrequest(res, err.message);
+      responseHelper.badrequest(res, err.message);
     }
   }
 }

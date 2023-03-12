@@ -1,17 +1,20 @@
 import express from "express";
-import ClientController from "../controllers/user.js";
-import { validateAuth } from "../middlewares/auth.js";
+import userController from "../controllers/user.js";
+import { validateAuth, validateAdmin } from "../middlewares/auth.js";
+import validateSignup from "../validators/user.js";
 
 const router = express.Router();
 
-router.get("/", ClientController.getAllUsers); // añadir validateAdmin
+// CREATE USER - REGISTER
+router.post("/signup", validateSignup, userController.signup);
+
+// router.get("/", validateAdmin, userController.getAllUsers); // añadir validateAdmin
 router.get("/validate", validateAuth, (req, res) => {
   res.send(req.user);
 });
-router.get("/:id", ClientController.getUser); // añadir validateAuth
+// router.get("/:id", userController.getUser); // añadir validateAuth
 
-router.post("/create", ClientController.create);
-router.post("/login", ClientController.login);
-router.post("/logout", ClientController.logout);
+// router.post("/login", userController.login);
+// router.post("/logout", userController.logout);
 
 export default router;

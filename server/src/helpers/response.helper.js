@@ -4,7 +4,7 @@ const responseWithData = (res, statusCode, data) =>
 const error = (res, message = null) =>
   responseWithData(res, 500, {
     status: 500,
-    message: message || "Oops! Something wrong!",
+    message: message || "Oops! Something's wrong!",
   });
 
 const badrequest = (res, message) =>
@@ -20,7 +20,7 @@ const created = (res, data) => responseWithData(res, 201, data);
 const unauthorized = (res) =>
   responseWithData(res, 401, {
     status: 401,
-    message: "Unathorized",
+    message: "Unauthorized",
   });
 
 const notfound = (res) =>
@@ -29,4 +29,4 @@ const notfound = (res) =>
     message: "Resource not found",
   });
 
-export { error, badrequest, ok, created, unauthorized, notfound };
+export default { error, badrequest, ok, created, unauthorized, notfound };
