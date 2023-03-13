@@ -2,10 +2,90 @@ import responseHelper from "../helpers/response.helper.js";
 import userModel from "../models/User.js";
 import jsonwebtoken from "jsonwebtoken";
 
+// CREATE ADMIN
+const admin = async (req, res) => {
+  try {
+    const { name, dni, email, password } = req.body;
+
+    const checkDni = await userModel.findOne({ dni });
+
+    if (checkDni)
+      return responseHelper.badrequest(
+        res,
+        "This person already has an account."
+      );
+
+    const checkEmail = await userModel.findOne({ email });
+
+    if (checkEmail)
+      return responseHelper.badrequest(
+        res,
+        "This email is already registered."
+      );
+
+    const user = new userModel();
+
+    user.name = name;
+    user.dni = dni;
+    user.email = email;
+    user.setPassword(password);
+    user.role = "admin"
+
+    await user.save();
+
+    responseHelper.created(res, {
+      ...user._doc,
+      id: user.id,
+    });
+  } catch {
+    responseHelper.error(res);
+  }
+};
+
+// CREATE USER / OPERATOR
+const create = async (req, res) => {
+  try {
+    const { name, dni, email, password, branch } = req.body;
+
+    const checkDni = await userModel.findOne({ dni });
+
+    if (checkDni)
+      return responseHelper.badrequest(
+        res,
+        "This person already has an account."
+      );
+
+    const checkEmail = await userModel.findOne({ email });
+
+    if (checkEmail)
+      return responseHelper.badrequest(
+        res,
+        "This email is already registered."
+      );
+
+    const user = new userModel();
+
+    user.name = name;
+    user.dni = dni;
+    user.email = email;
+    user.setPassword(password);
+    branch ? ((user.branch = branch), (user.role = "operator")) : null;
+
+    await user.save();
+
+    responseHelper.created(res, {
+      ...user._doc,
+      id: user.id,
+    });
+  } catch {
+    responseHelper.error(res);
+  }
+};
+
 // SIGNUP
 const signup = async (req, res) => {
   try {
-    const { name, dni, email, password, role } = req.body;
+    const { name, dni, email, password } = req.body;
 
     const checkDni = await userModel.findOne({ dni });
 
@@ -82,8 +162,4 @@ const signin = async (req, res) => {
   }
 };
 
-// CREATE USER / OPERATOR
-
-const create = () => {};
-
-export default { signup, signin, create };
+export default { admin, create, signup, signin  };
