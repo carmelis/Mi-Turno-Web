@@ -29,7 +29,7 @@ const admin = async (req, res) => {
     user.dni = dni;
     user.email = email;
     user.setPassword(password);
-    user.role = "admin"
+    user.role = "admin";
 
     await user.save();
 
@@ -109,7 +109,6 @@ const signup = async (req, res) => {
     user.dni = dni;
     user.email = email;
     user.setPassword(password);
-    role === "admin" ? (user.role = role) : null;
 
     await user.save();
 
@@ -162,4 +161,4 @@ const signin = async (req, res) => {
   }
 };
 
-export default { admin, create, signup, signin  };
+export default { admin, create, signup, signin };
