@@ -1,41 +1,17 @@
 import responseHelper from "../helpers/response.helper.js";
-import userModel from "../models/User.js";
-import jsonwebtoken from "jsonwebtoken";
+import userService from "../services/user.js";
+import { generateToken } from "../helpers/token.helper.js";
 
 // CREATE ADMIN
 const admin = async (req, res) => {
   try {
     const { name, dni, email, password } = req.body;
 
-    const checkDni = await userModel.findOne({ dni });
-
-    if (checkDni)
-      return responseHelper.badrequest(
-        res,
-        "This person already has an account."
-      );
-
-    const checkEmail = await userModel.findOne({ email });
-
-    if (checkEmail)
-      return responseHelper.badrequest(
-        res,
-        "This email is already registered."
-      );
-
-    const user = new userModel();
-
-    user.name = name;
-    user.dni = dni;
-    user.email = email;
-    user.setPassword(password);
-    user.role = "admin";
-
-    await user.save();
+    const admin = await userService.admin({ name, dni, email, password });
 
     responseHelper.created(res, {
-      ...user._doc,
-      id: user.id,
+      ...admin._doc,
+      id: admin.id,
     });
   } catch {
     responseHelper.error(res);
@@ -47,31 +23,13 @@ const create = async (req, res) => {
   try {
     const { name, dni, email, password, branch } = req.body;
 
-    const checkDni = await userModel.findOne({ dni });
-
-    if (checkDni)
-      return responseHelper.badrequest(
-        res,
-        "This person already has an account."
-      );
-
-    const checkEmail = await userModel.findOne({ email });
-
-    if (checkEmail)
-      return responseHelper.badrequest(
-        res,
-        "This email is already registered."
-      );
-
-    const user = new userModel();
-
-    user.name = name;
-    user.dni = dni;
-    user.email = email;
-    user.setPassword(password);
-    branch ? ((user.branch = branch), (user.role = "operator")) : null;
-
-    await user.save();
+    const user = await userService.create({
+      name,
+      dni,
+      email,
+      password,
+      branch,
+    });
 
     responseHelper.created(res, {
       ...user._doc,
@@ -87,39 +45,15 @@ const signup = async (req, res) => {
   try {
     const { name, dni, email, password } = req.body;
 
-    const checkDni = await userModel.findOne({ dni });
+    const user = await userService.signup({ name, dni, email, password });
 
-    if (checkDni)
-      return responseHelper.badrequest(
-        res,
-        "This person already has an account."
-      );
+    const token = generateToken(user);
 
-    const checkEmail = await userModel.findOne({ email });
+    user.password = undefined;
+    user.salt = undefined;
 
-    if (checkEmail)
-      return responseHelper.badrequest(
-        res,
-        "This email is already registered."
-      );
-
-    const user = new userModel();
-
-    user.name = name;
-    user.dni = dni;
-    user.email = email;
-    user.setPassword(password);
-
-    await user.save();
-
-    const token = jsonwebtoken.sign(
-      { data: user.id },
-      process.env.TOKEN_SECRET,
-      { expiresIn: "24h" }
-    );
-
+    res.cookie("token", token);
     responseHelper.created(res, {
-      token,
       ...user._doc,
       id: user.id,
     });
@@ -133,26 +67,15 @@ const signin = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await userModel
-      .findOne({ email })
-      .select("name dni email password role branch salt id");
+    const user = await userService.signin(email, password);
 
-    if (!user) return responseHelper.badrequest(res, "User not exist");
-
-    if (!user.validPassword(password))
-      return responseHelper.badrequest(res, "Wrong password");
-
-    const token = jsonwebtoken.sign(
-      { data: user.id },
-      process.env.TOKEN_SECRET,
-      { expiresIn: "24h" }
-    );
+    const token = generateToken(user);
 
     user.password = undefined;
     user.salt = undefined;
 
+    res.cookie("token", token);
     responseHelper.created(res, {
-      token,
       ...user._doc,
       id: user.id,
     });

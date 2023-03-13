@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-const SECRET = process.env.SECRET;
+const SECRET = process.env.TOKEN_SECRET;
 
 function generateToken(payload) {
   return jwt.sign({ user: payload }, SECRET, { expiresIn: "1d" });
