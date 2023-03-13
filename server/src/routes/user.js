@@ -1,20 +1,16 @@
 import express from "express";
 import userController from "../controllers/user.js";
-import { validateAuth, validateAdmin } from "../middlewares/auth.js";
-import validateSignup from "../validators/user.js";
+import { validateSignup, validateSignin } from "../validators/user.js";
 
 const router = express.Router();
 
-// CREATE USER - REGISTER
+// SIGNUP
 router.post("/signup", validateSignup, userController.signup);
 
-// router.get("/", validateAdmin, userController.getAllUsers); // añadir validateAdmin
-router.get("/validate", validateAuth, (req, res) => {
-  res.send(req.user);
-});
-// router.get("/:id", userController.getUser); // añadir validateAuth
+// SIGNIN
+router.post("/signin", validateSignin, userController.signin);
 
-// router.post("/login", userController.login);
-// router.post("/logout", userController.logout);
+// CREATE USER / OPERATOR
+router.post("/create", validateSignup, userController.create);
 
 export default router;

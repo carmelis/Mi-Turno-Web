@@ -25,9 +25,8 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "client",
     },
-    active: {
-      type: Boolean,
-      default: true,
+    branch: {
+      type: String,
     },
     salt: {
       type: String,
